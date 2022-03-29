@@ -24,13 +24,15 @@ public class SubjectController {
 
     // CRUD (Create, Retrieve, Update, Delete, List)
 
-    @GetMapping // LIST
+    @GetMapping("/list") // LIST
     List<Subject> getSubjects() {
         return subjectRepository.findAll();
     }
 
-    @PostMapping // CREATE SUBJECT
-    Subject createSubject(@RequestBody Subject subject) {
+    @PostMapping("create/")// CREATE SUBJECT
+    Subject createSubject(
+            @RequestBody Subject subject
+    ) {
         return subjectRepository.save(subject);
     }
 
